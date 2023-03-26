@@ -74,8 +74,10 @@ export default function Item(props) {
                  <div className={styles.quantidade}>
                     Quantidade:
                     <AiFillMinusCircle {...quantidadeProps} onClick={() => {
-                      if(quantidade > 0){
-                        dispatch(mudarquantidade({id, quantidade: -1}))
+                      if(quantidade > 1){
+                        dispatch(mudarquantidade({id, quantidade: -1}));
+                      }else{
+                        dispatch(mudarcarrinho(id));
                       }
                     }}/>
                     <span>{String(quantidade || 0).padStart(2, '0')}</span>
